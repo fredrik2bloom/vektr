@@ -173,7 +173,7 @@ export default function Home({ posts }) {
                               </Link>
                             </h2>
                             <div className="mt-2 flex flex-wrap gap-2">
-                              {tags.slice(0, 4).map((tag) => (
+                              {tags?.slice(0, 4).map((tag) => (
                                 <Tag key={tag} text={tag} />
                               ))}
                             </div>
