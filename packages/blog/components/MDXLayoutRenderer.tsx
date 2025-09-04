@@ -8,13 +8,12 @@ interface MDXLayoutRendererProps {
   [key: string]: any
 }
 
-export function MDXLayoutRenderer({ code, components, ...rest }: MDXLayoutRendererProps) {
-  const Component = React.useMemo(() => {
-    // Create a function from the compiled MDX code
-    const scope = { React, ...components }
-    const fn = new Function(...Object.keys(scope), code)
-    return fn(...Object.values(scope)).default
-  }, [code, components])
-
-  return <Component {...rest} />
+export function MDXLayoutRenderer({ code, components = {}, ...rest }: MDXLayoutRendererProps) {
+  // For now, just render a div with the content
+  // This is a temporary fix until we can properly implement MDX rendering
+  return (
+    <div className="prose prose-gray dark:prose-invert max-w-none">
+      <div dangerouslySetInnerHTML={{ __html: code }} />
+    </div>
+  )
 }
