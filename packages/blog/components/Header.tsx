@@ -4,7 +4,7 @@ import Logo from '@/data/logo.svg'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
-import SearchButton from './SearchButton'
+// import SearchButton from './SearchButton'
 import Image from './Image'
 
 const Header = () => {
@@ -44,7 +44,7 @@ const Header = () => {
               </Link>
             ))}
         </div>
-        <SearchButton />
+        {/* <SearchButton /> */}
         <ThemeSwitch />
         <MobileNav />
       </div>
