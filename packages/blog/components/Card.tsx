@@ -2,7 +2,14 @@ import Image from './Image'
 import Link from './Link'
 import { getSeededOverlayClass } from '@/utils/overlayUtils'
 
-const Card = ({ title, description, imgSrc, href }) => (
+interface CardProps {
+  title: string
+  description: string
+  imgSrc?: string
+  href?: string
+}
+
+const Card = ({ title, description, imgSrc, href }: CardProps) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div
       className={`${
