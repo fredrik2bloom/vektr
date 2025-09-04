@@ -3,13 +3,7 @@ import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
 import { Space_Grotesk } from 'next/font/google'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-// import { SearchProvider, SearchConfig } from 'pliny/search'
-import Header from '@/components/Header'
-import SectionContainer from '@/components/SectionContainer'
-import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
-import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
 const space_grotesk = Space_Grotesk({
@@ -95,15 +89,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
-        <ThemeProviders>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <SectionContainer>
-            <Header />
+      <body className="bg-white text-black antialiased">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+          <div className="flex h-screen flex-col justify-between font-sans">
+            <header className="flex items-center justify-between py-10">
+              <div>
+                <h1 className="text-2xl font-bold">Vektr</h1>
+              </div>
+              <nav className="flex items-center space-x-4 leading-5">
+                <a href="/" className="font-medium text-gray-900">Home</a>
+                <a href="/blog" className="font-medium text-gray-900">Blog</a>
+                <a href="/projects" className="font-medium text-gray-900">Projects</a>
+                <a href="/about" className="font-medium text-gray-900">About</a>
+              </nav>
+            </header>
             <main className="mb-auto">{children}</main>
-          </SectionContainer>
-          <Footer />
-        </ThemeProviders>
+            <footer className="mt-16 flex flex-col items-center">
+              <div className="text-sm text-gray-500">
+                © 2025 Vektr. All rights reserved.
+              </div>
+            </footer>
+          </div>
+        </div>
       </body>
     </html>
   )
