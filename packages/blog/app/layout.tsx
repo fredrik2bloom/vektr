@@ -1,115 +1,24 @@
-import 'css/tailwind.css'
-import 'pliny/search/algolia.css'
-import 'remark-github-blockquote-alert/alert.css'
-
-import { Space_Grotesk } from 'next/font/google'
-import siteMetadata from '@/data/siteMetadata'
 import { Metadata } from 'next'
 
-const space_grotesk = Space_Grotesk({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
-})
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMetadata.siteUrl),
-  title: {
-    default: siteMetadata.title,
-    template: `%s | ${siteMetadata.title}`,
-  },
-  description: siteMetadata.description,
-  openGraph: {
-    title: siteMetadata.title,
-    description: siteMetadata.description,
-    url: './',
-    siteName: siteMetadata.title,
-    images: [siteMetadata.socialBanner],
-    locale: 'en_US',
-    type: 'website',
-  },
-  alternates: {
-    canonical: './',
-    types: {
-      'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
-    },
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  twitter: {
-    title: siteMetadata.title,
-    card: 'summary_large_image',
-    images: [siteMetadata.socialBanner],
-  },
+  title: 'Vektr Crypto Feed',
+  description: 'Cryptocurrency news aggregator',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const basePath = process.env.BASE_PATH || ''
-
   return (
-    <html
-      lang={siteMetadata.language}
-      className={`${space_grotesk.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
-      <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href={`${basePath}/static/favicons/apple-touch-icon.png?v=2`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href={`${basePath}/static/favicons/favicon-32x32.png?v=2`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={`${basePath}/static/favicons/favicon-16x16.png?v=2`}
-      />
-      <link rel="icon" href={`${basePath}/static/favicons/favicon.ico?v=2`} />
-      <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest?v=2`} />
-      <link
-        rel="mask-icon"
-        href={`${basePath}/static/favicons/safari-pinned-tab.svg`}
-        color="#5bbad5"
-      />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      <body className="bg-white text-black antialiased">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-          <div className="flex h-screen flex-col justify-between font-sans">
-            <header className="flex items-center justify-between py-10">
-              <div>
-                <h1 className="text-2xl font-bold">Vektr</h1>
-              </div>
-              <nav className="flex items-center space-x-4 leading-5">
-                <a href="/" className="font-medium text-gray-900">Home</a>
-                <a href="/blog" className="font-medium text-gray-900">Blog</a>
-                <a href="/projects" className="font-medium text-gray-900">Projects</a>
-                <a href="/about" className="font-medium text-gray-900">About</a>
-              </nav>
-            </header>
-            <main className="mb-auto">{children}</main>
-            <footer className="mt-16 flex flex-col items-center">
-              <div className="text-sm text-gray-500">
-                © 2025 Vektr. All rights reserved.
-              </div>
-            </footer>
-          </div>
+    <html lang="en">
+      <body>
+        <div>
+          <h1>Vektr</h1>
+          <nav>
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="/projects">Projects</a>
+            <a href="/about">About</a>
+          </nav>
+          <main>{children}</main>
+          <footer>© 2025 Vektr</footer>
         </div>
       </body>
     </html>

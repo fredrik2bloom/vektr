@@ -1,36 +1,22 @@
-import projectsData from '@/data/projectsData'
-import Card from '@/components/Card'
-import { genPageMetadata } from 'app/seo'
-
 export const dynamic = 'force-dynamic'
-export const metadata = genPageMetadata({ title: 'Projects' })
 
 export default function Projects() {
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
-            Projects
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Showcase your projects with a hero image (16 x 9)
-          </p>
-        </div>
-        <div className="container py-12">
-          <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-              />
-            ))}
-          </div>
-        </div>
+    <div>
+      <h1>Projects</h1>
+      <p>Showcase your projects with a hero image (16 x 9)</p>
+      <div>
+        <h2>vektr RSS Aggregator</h2>
+        <p>An intelligent system that aggregates cryptocurrency news from multiple trusted sources, 
+        processes content with AI for better readability, and automatically publishes to this blog. 
+        Built with Node.js, OpenAI, and Supabase.</p>
       </div>
-    </>
+      <div>
+        <h2>Real-time Crypto Analytics</h2>
+        <p>Advanced cryptocurrency market analysis powered by AI, providing insights into 
+        price movements, market sentiment, and breaking news impact. Features automated 
+        trading signals and portfolio recommendations.</p>
+      </div>
+    </div>
   )
 }
