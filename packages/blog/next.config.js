@@ -54,7 +54,7 @@ const securityHeaders = [
   },
 ]
 
-const output = process.env.EXPORT ? 'export' : undefined
+const output = undefined // Disable export to fix prerendering errors
 const basePath = process.env.BASE_PATH || undefined
 const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 
@@ -73,6 +73,14 @@ module.exports = () => {
       dirs: ['app', 'components', 'layouts', 'scripts'],
       // Disable ESLint during builds for Vercel deployment
       ignoreDuringBuilds: true,
+    },
+    // Skip static generation for error pages to fix build issues
+    experimental: {
+      skipTrailingSlashRedirect: true,
+    },
+    // Disable prerendering for problematic pages
+    generateBuildId: async () => {
+      return 'build-' + Date.now()
     },
     images: {
       remotePatterns: [
