@@ -55,6 +55,7 @@ const securityHeaders = [
 ]
 
 const output = process.env.EXPORT ? 'export' : undefined
+const trailingSlash = process.env.EXPORT ? true : false
 const basePath = process.env.BASE_PATH || undefined
 const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 
@@ -67,7 +68,7 @@ module.exports = () => {
     output,
     basePath,
     reactStrictMode: true,
-    trailingSlash: false,
+    trailingSlash,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     eslint: {
       dirs: ['app', 'components', 'layouts', 'scripts'],
@@ -77,6 +78,11 @@ module.exports = () => {
     typescript: {
       // Disable TypeScript errors during builds for Vercel deployment
       ignoreBuildErrors: true,
+    },
+    experimental: {
+      // Skip static optimization to avoid serialization errors
+      skipTrailingSlashRedirect: true,
+      skipMiddlewareUrlNormalize: true,
     },
     images: {
       remotePatterns: [
