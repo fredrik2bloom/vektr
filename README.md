@@ -57,6 +57,18 @@ npm run scraper:once
 npm run dev:blog
 ```
 
+## 🚀 Production Deployment (100% Free)
+
+### Architecture
+- **GitHub Actions**: Automated scraper execution (free)
+- **Vercel**: Blog hosting (free tier)  
+- **Supabase**: Database (free tier)
+
+### Setup Guide
+See [GitHub Actions Deployment Guide](./GITHUB_ACTIONS_DEPLOYMENT.md) for complete setup instructions.
+
+**Total Cost**: $0/month using free tiers
+
 ## 📋 Available Scripts
 
 ### Root Scripts
