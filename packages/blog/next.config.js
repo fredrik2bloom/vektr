@@ -54,10 +54,10 @@ const securityHeaders = [
   },
 ]
 
-const output = 'export' // Force static export to bypass server-side serialization issues
-const trailingSlash = true // Required for static export
+const output = undefined // Disable static export
+const trailingSlash = false // Default setting
 const basePath = process.env.BASE_PATH || undefined
-const unoptimized = true // Disable image optimization for static export
+const unoptimized = false // Enable image optimization
 
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
