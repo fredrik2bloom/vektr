@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd packages/blog && npm run build",
+  "outputDirectory": "packages/blog/.next",
+  "installCommand": "npm install",
+  "framework": null,
+  "functions": {
+    "packages/blog/api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}

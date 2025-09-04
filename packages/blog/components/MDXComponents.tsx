@@ -10,7 +10,7 @@ export const components: MDXComponents = {
   Image,
   TOCInline,
   a: CustomLink,
-  pre: Pre,
+  pre: (props: any) => <Pre>{props.children}</Pre>,
   table: TableWrapper,
   BlogNewsletterForm,
 }
