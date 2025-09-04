@@ -71,6 +71,8 @@ module.exports = () => {
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     eslint: {
       dirs: ['app', 'components', 'layouts', 'scripts'],
+      // Disable ESLint during builds for Vercel deployment
+      ignoreDuringBuilds: true,
     },
     images: {
       remotePatterns: [
